@@ -18,11 +18,7 @@ const TodoForm = () => {
         />
         <Button> + Add Tasks </Button>
       </div>
-      <div className="collection">
-        <span>All</span>
-        <span>Active</span>
-        <span>Completed</span>
-      </div>
+      
     </form>
   );
 };

@@ -6,20 +6,19 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 // import {  FaCheckCircle } from "react-icons/fa";
 import React, { useContext } from "react";
 import { TodoContext } from "./TodoContext";
+import { useState } from "react";
+import Checked from "./components/Checked";
 
 const TodoList = () => {
-  const { todos, editTodo, deleteTodo, aarowUp, aarowDown } =
+  const { todos, editTodo, deleteTodo, aarowUp, aarowDown, getFilteredTodos } =
     useContext(TodoContext);
+
   return (
     <ul type="none">
-      {todos.map((todo, index) => {
+      {getFilteredTodos().map((todo, index) => {
         return (
           <li key={todo.id} className="list-container">
-            <div className="left-item">
-              <input type="checkbox" />
-              {todo.task}{" "}
-            </div>
-
+              <Checked key={todo.id} todo={todo} />
             <div className="right-item">
               <button
                 className="up-btn"
@@ -55,6 +54,8 @@ const TodoList = () => {
         );
       })}
     </ul>
+    
+  
   );
 };
 

@@ -1,6 +1,4 @@
-import React, { useState, createContext, children } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
+import React, { useState, createContext, useEffect } from "react";
 
 // Create context
 export const TodoContext = createContext();
@@ -10,6 +8,11 @@ export const TodoProvider = ({ children }) => {
   const [newItem, setNewItem] = useState("");
   const [todos, settodos] = useState([]);
   const [editId, seteditId] = useState(null);
+  const [filter, setFilter] = useState("All");
+
+  useEffect(()=>{
+    console.log(todos)
+  },[todos])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,11 +63,12 @@ export const TodoProvider = ({ children }) => {
       for (let i = 0; i < curerrentodos.length; i++) {
         if (curerrentodos[i].id !== id) {
           newtodos[length] = curerrentodos[i];
+          length++;
         }
-        length++;
       }
       return newtodos;
     });
+
   };
 
   const aarowUp = (index) => {
@@ -92,9 +96,47 @@ export const TodoProvider = ({ children }) => {
     });
   };
 
+  const toggleCheck = (id) => {
+    settodos((curerrentodos) => {
+      const updatedTodo = [];
+      let length = 0;
+      for (let i = 0; i < curerrentodos.length; i++) {
+        if (curerrentodos[i].id === id) {
+          updatedTodo[length] = {
+            ...curerrentodos[i],
+            completed: !curerrentodos[i].completed,
+          };
+        } else {
+          updatedTodo[length] = { ...curerrentodos[i] };
+        }
+        length++;
+      }
+      return updatedTodo;
+    });
+  };
+
+  // this still not worked
+
+ const getFilteredTodos = () => {
+  if (filter === "All") return todos;
+
+  if (filter === "Completed") {
+    return todos.filter((todo) => todo.completed === true);
+  }
+
+  if (filter === "Active") {
+    return todos.filter((todo) => todo.completed === false);
+  }
+};
+
+  const clearButton = () => {
+    settodos([]); 
+  }
   //functionName(()=>{})
 
-  // console.log(todos);
+  // useEffect ( ()=>{
+  //   console.log("Button Clicked"),[filter]
+  // })
   return (
     <>
       <TodoContext.Provider
@@ -103,10 +145,16 @@ export const TodoProvider = ({ children }) => {
           setNewItem,
           handleSubmit,
           todos,
+          settodos,
           editTodo,
           deleteTodo,
           aarowUp,
           aarowDown,
+          setFilter,
+          filter,
+          getFilteredTodos,
+          toggleCheck,
+          clearButton
         }}
       >
         {children}

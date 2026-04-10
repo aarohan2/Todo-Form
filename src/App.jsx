@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
-import { TodoProvider } from "./TodoContext";
+import Checked from "./components/Checked";
 import { Button } from "./components/Button";
-const App = () => {
-  //functionName(()=>{})
+import Collection from "./components/Collection";
+import { TodoProvider, TodoContext } from "./TodoContext";
 
-  // console.log(todos);
+const App = () => {
+
   return (
     <TodoProvider>
-      <div className="container">
-        <TodoForm />
-        <TodoList />
-         <Button> clear </Button>
-      </div>
+      <MainApp />
     </TodoProvider>
+  );
+};
+
+const MainApp = () => {
+  const { clearButton } = useContext(TodoContext);
+
+  return (
+    <div className="container">
+      <TodoForm />
+      <Collection />
+      <TodoList />
+
+      <Button onClick={clearButton}>clear</Button>
+    </div>
   );
 };
 
