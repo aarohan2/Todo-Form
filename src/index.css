@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --main-font-color: #111827;
+  --sec-font-color: #6b7280;
+  --main-input-color: #f2f4f6;
+  --sec-input-color: #176537;
+}
+
+.container {
+  width: 40rem;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sec-container {
+  background-color: var(--main-input-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.input {
+  flex-grow: 1;
+  border: var(--sec-font-color);
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: var(--main-input-color);
+  outline: none;
+}
+
+.btn {
+  color: var(--main-input-color);
+  background-color: var(--sec-input-color);
+  border-radius: 1rem;
+  font-size: 1rem;
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  flex-shrink: 0;
+  border: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--main-font-color);
+}
+
+.sec-heading {
+  color: var(--sec-font-color);
+  margin-bottom: 2.5rem;
+}
+
+.collection {
+  color: var(--sec-font-color);
+  display: flex;
+  gap: 3rem;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--main-input-color);
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  word-break: break-all;
+}
+
+.list-container .right-item {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+  
+}
+
+.list-container .left-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.edit-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.delete-btn {
+  border: none;
+  background-color: transparent;
+  color: red;
+}
+
+.up-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.down-btn {
+  border: none;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--sec-input-color);
+}
+
+.checked {
+  text-decoration: line-through red;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: black;
+}
+
+.filter-btn:hover {
+  background-color: var(--sec-input-color);
+  color: white;
+  
+}
