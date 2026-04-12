@@ -130,7 +130,6 @@ export const TodoProvider = ({ children }) => {
 };
 
   const clearButton = () => {
-    
     settodos([]); 
   }
   //functionName(()=>{})

@@ -4,7 +4,7 @@ import { TodoContext } from "./TodoContext";
 import { Button } from "./components/Button";
 
 const TodoForm = () => {
-  const { handleSubmit, setNewItem, newItem,  } = useContext(TodoContext);
+  const { handleSubmit, setNewItem, newItem } = useContext(TodoContext);
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="heading">My Tasks</div>

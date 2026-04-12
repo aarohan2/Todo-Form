@@ -15,7 +15,7 @@ const Checked = ({ todo }) => {
 
 //   console.log(todo.completed);
   return (
-    <div className={`${todo.completed ? "checked" : ""} left-item `}>
+    <div className={`left-item ${todo.completed ? "checked" : ""}`}>
       <input
         type="checkbox"
         typeof="button"
