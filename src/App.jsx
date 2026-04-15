@@ -7,7 +7,6 @@ import Collection from "./components/Collection";
 import { TodoProvider, TodoContext } from "./TodoContext";
 
 const App = () => {
-
   return (
     <TodoProvider>
       <MainApp />
@@ -23,7 +22,6 @@ const MainApp = () => {
       <TodoForm />
       <Collection />
       <TodoList />
-
       <Button onClick={clearButton}>clear</Button>
     </div>
   );

@@ -15,7 +15,7 @@ const TodoList = () => {
 
   return (
     <ul type="none">
-      {getFilteredTodos().map((todo, index) => {
+      {getFilteredTodos()?.map((todo, index) => {
         return (
           <li key={todo.id} className="list-container">
               <Checked key={todo.id} todo={todo} />
@@ -27,7 +27,7 @@ const TodoList = () => {
               >
                 {" "}
                 <FontAwesomeIcon icon={faArrowUp} />{" "}
-              </button>
+               </button>
               <button
                 className="down-btn"
                 type="button"
@@ -45,7 +45,7 @@ const TodoList = () => {
               </button>
               <button
                 className="delete-btn"
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() => deleteTodo( todo.id)}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
