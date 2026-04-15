@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import TodoContext from "../TodoContext";
 
-const Input = ({ className = "" }) => {
-  const { setNewItem, newItem } = useContext(TodoContext);
+
+const Input = ({ className = "", disabled, placeholder,value,onChange  }) => {
+  
   return (
     <>
       <input
         className={`input ${className}`}
-        placeholder="Add your Todos"
-        value={newItem}
-        onChange={(e) => setNewItem(e.target.value)}
+        disabled ={disabled}
+        placeholder={placeholder}
+        value={value} 
+        onChange={onChange}
       />
     </>
   );

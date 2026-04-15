@@ -10,7 +10,7 @@ import { useState } from "react";
 import Checked from "./components/Checked";
 
 const TodoList = () => {
-  const { todos, editTodo, deleteTodo, aarowUp, aarowDown, getFilteredTodos } =
+  const { editTodo, deleteTodo, aarowUp, aarowDown, getFilteredTodos } =
     useContext(TodoContext);
 
   return (
@@ -18,7 +18,7 @@ const TodoList = () => {
       {getFilteredTodos()?.map((todo, index) => {
         return (
           <li key={todo.id} className="list-container">
-              <Checked key={todo.id} todo={todo} />
+            <Checked key={todo.id} todo={todo} />
             <div className="right-item">
               <button
                 className="up-btn"
@@ -27,7 +27,7 @@ const TodoList = () => {
               >
                 {" "}
                 <FontAwesomeIcon icon={faArrowUp} />{" "}
-               </button>
+              </button>
               <button
                 className="down-btn"
                 type="button"
@@ -45,7 +45,7 @@ const TodoList = () => {
               </button>
               <button
                 className="delete-btn"
-                onClick={() => deleteTodo( todo.id)}
+                onClick={() => deleteTodo(index)}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
@@ -54,8 +54,6 @@ const TodoList = () => {
         );
       })}
     </ul>
-    
-  
   );
 };
 

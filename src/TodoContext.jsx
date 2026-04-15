@@ -10,10 +10,6 @@ export const TodoProvider = ({ children }) => {
   const [editId, seteditId] = useState(null);
   const [filter, setFilter] = useState("All");
 
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -49,9 +45,8 @@ export const TodoProvider = ({ children }) => {
 
   // use splice mthod in this
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (index) => {
     settodos((curerrentodos) => {
-      const index = curerrentodos.findIndex((todo) => todo.id === id);
       const newTodos = [...curerrentodos];
       if (index === -1) {
         return curerrentodos;
@@ -92,8 +87,8 @@ export const TodoProvider = ({ children }) => {
   const toggleCheck = (id) => {
     settodos((curerrentodos) => {
       return curerrentodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    );
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      );
     });
   };
 
