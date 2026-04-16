@@ -6,10 +6,19 @@ export const TodoContext = createContext();
 // Create provider
 export const TodoProvider = ({ children }) => {
   const [newItem, setNewItem] = useState("");
-  const [todos, settodos] = useState([]);
+
+  const [todos, settodos] = useState(() =>{
+  const saved = localStorage.getItem("todos");
+  return saved ? JSON.parse(saved) : [];
+  })
+
   const [editId, seteditId] = useState(null);
   const [filter, setFilter] = useState("All");
 
+  useEffect(() =>{
+    localStorage.setItem("todos", JSON.stringify(todos))
+  },[todos]);
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
 
